@@ -1,6 +1,9 @@
 # blocky
 
-A new Flutter Game.
+Um Joginho feito em Flutter
+
+Se você está vindo pelo Campus Party, e quer o projeto final, no dia 07/09, veja-o [aqui](https://github.com/allansrc/block_buster).
+Se não, confira o projeto terminado na branch `feat/complete` 
 
 ## Entendendo o código :)
 
@@ -10,7 +13,8 @@ velocity: Vector2(
 ).normalized()
 ..scale(height / 4)
 ```
-Essa linha de código define a `velocity` do objeto como um vetor que sua direção é aleatória no eixo X e fixa no eixo Y, com a magnitude ajustada para ser proporcional a um quarto da altura da tela (`..scale(height / 4)`). 
+
+Esse código define a propriedade `velocity` do objeto como um vetor que sua direção é aleatória no eixo X e fixa no eixo Y, com a magnitude ajustada para ser proporcional a um quarto da altura da tela (`..scale(height / 4)`). 
 Essa velocidade é inicialmente normalizada para garantir que sua direção seja bem definida, e depois é escalada para controlar a velocidade real com que o objeto se move.
 
 O resultado é um objeto que se move em uma direção aleatória, mas com uma velocidade controlada, proporcional à altura do jogo.
