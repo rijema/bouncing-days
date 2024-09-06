@@ -1,16 +1,44 @@
 # blocky
 
-A new Flutter project.
+A new Flutter Game.
 
-## Getting Started
+## Entendendo o código :)
 
-This project is a starting point for a Flutter application.
+```dart
+velocity: Vector2(
+  (rand.nextDouble() - 0.5) * width, height * 0.2
+).normalized()
+..scale(height / 4)
+```
+Essa linha de código define a `velocity` do objeto como um vetor que sua direção é aleatória no eixo X e fixa no eixo Y, com a magnitude ajustada para ser proporcional a um quarto da altura da tela (`..scale(height / 4)`). 
+Essa velocidade é inicialmente normalizada para garantir que sua direção seja bem definida, e depois é escalada para controlar a velocidade real com que o objeto se move.
 
-A few resources to get you started if this is your first Flutter project:
+O resultado é um objeto que se move em uma direção aleatória, mas com uma velocidade controlada, proporcional à altura do jogo.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+___
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+`Set<Vector2> intersectionPoints`: um conjunto de pontos onde ocorre a interseção entre os dois componentes. Cada Vector2 representa as coordenadas (x, y) de onde a colisão aconteceu.
+PositionComponent other: o outro componente com o qual houve a colisão.
+
+---
+
+`if (intersectionPoints.first.y <= 0)`: Se a colisão ocorreu no topo do Da áera jogável (ou seja, o valor de y do ponto de colisão é menor ou igual a 0), a velocidade no eixo Y é invertida. Isso cria um efeito de "rebote" vertical. 
+
+rebote: `velocity.y = -velocity.y;`
+__
+
+`else if (intersectionPoints.first.x <= 0)`: Se a colisão ocorre no lado esquerdo da área jogável (ou seja, x <= 0), a velocidade no eixo X é invertida, criando um rebote horizontal.
+
+rebote: `velocity.x = -velocity.x;`
+__
+
+`else if (intersectionPoints.first.x >= game.width)`: Se a colisão ocorreu no lado direito (ou seja, x maior ou igual à largura da área de jogo), também inverte a velocidade no eixo X.
+
+rebote: `velocity.x = -velocity.x;`
+__
+
+`else if (intersectionPoints.first.y >= game.height)`: Se a colisão ocorreu na parte inferior da área jogável (ou seja, y maior ou igual à altura da área de jogo).
+
+acaba o game e a bola passa.
+
+---
