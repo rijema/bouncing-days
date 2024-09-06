@@ -13,11 +13,13 @@ const blockysColors = [
   Color(0xff577590),
 ];
 
-const gameColor = Color(0xff1e6091);
+const ballColor = Color(0xff1e6091);
+const gameColor = Color(0xfff2e8cf);
 const backGroundColor = Color(0xfff2e8cf);
 
 const gameWidth = 820.0;
 const gameHeight = 1600.0;
+
 const ballRadius = gameWidth * 0.02;
 const batWidth = gameWidth * 0.2;
 const batHeight = ballRadius * 2;
