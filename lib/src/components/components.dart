@@ -1,1 +1,2 @@
-// exportar play_area
+export './ball.dart';
+export 'play_area.dart';
